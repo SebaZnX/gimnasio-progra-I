@@ -50,7 +50,13 @@ public class Gimnasio {
     }
 
     public String mostrarMiembro() {
-        return this.miembros.toString();
+        String listaCompleta = "";
+
+        for (int i = 0; i < this.miembros.size(); i++) {
+            listaCompleta = listaCompleta + this.miembros.get(i).toString() + "\n";
+        }
+
+        return listaCompleta;
     }
 
     //EL METODO CONTEINSKEY YA REGRESA UN FALSO O VERDADERO

@@ -71,13 +71,22 @@ public class Membresia {
 
     @Override
     public String toString() {
-        return "Membresia{" +
-                "idMembresia='" + idMembresia + '\'' +
-                ", precio=" + precio +
-                ", tipoMembresia='" + tipoMembresia + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", derechoSpa=" + derechoSpa +
-                ", derechoClasesGrupales=" + derechoClasesGrupales +
-                '}';
+        String textoSpa = "No";
+        if (derechoSpa) {
+            textoSpa = "Sí";
+        }
+
+        String textoClases = "No";
+        if (derechoClasesGrupales) {
+            textoClases = "Sí";
+        }
+
+        return "\n--- Tipo de Membresía ---" +
+                "\nID: " + idMembresia +
+                "\nTipo: " + tipoMembresia +
+                "\nPrecio: $" + precio +
+                "\nDescripción: " + descripcion +
+                "\nDerecho a Spa: " + textoSpa +
+                "\nClases Grupales: " + textoClases;
     }
 }

@@ -71,13 +71,12 @@ public class Miembro {
 
     @Override
     public String toString() {
-        return "Miembro{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", cedula='" + cedula + '\'' +
-                ", edad=" + edad +
-                ", mesesInscripcion=" + mesesInscripcion +
-                ", membresia=" + membresia +
-                '}';
+        return "\n===================================" +
+                "\nNombre: " + nombre + " " + apellido +
+                "\nCédula: " + cedula +
+                "\nEdad: " + edad + " años" +
+                "\nMeses inscrito: " + mesesInscripcion +
+                membresia.toString() +
+                "\n===================================";
     }
 }
