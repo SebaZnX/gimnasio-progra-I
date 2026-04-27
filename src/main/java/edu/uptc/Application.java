@@ -80,9 +80,19 @@ public class Application {
                     break;
                 case 5:
                     String idMiembro = JOptionPane.showInputDialog("INGRESE LA CEDULA DEL MIEMBRO");
-                    String cedulaCoach = JOptionPane.showInputDialog("INGRESE LA CEDULA DEL COACH \n" +
-                            gimnasioUptc.mostrarCoaches());
-                    JOptionPane.showMessageDialog(null, gimnasioUptc.asignarCoach(idMiembro, cedulaCoach));
+                    boolean isEncontradoMiembro = gimnasioUptc.idBuscar(idMiembro);
+                    if (isEncontradoMiembro) {
+                        String cedulaCoach = JOptionPane.showInputDialog("INGRESE LA CEDULA DEL COACH \n" +
+                                gimnasioUptc.mostrarCoaches());
+                        boolean isEncontradoCoach = gimnasioUptc.cedulaBuscarCoach(cedulaCoach);
+                        if (isEncontradoCoach) {
+                            JOptionPane.showMessageDialog(null, gimnasioUptc.asignarCoach(idMiembro, cedulaCoach));
+                        } else {
+                            JOptionPane.showMessageDialog(null, "EL COACH NO EXISTE");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "MIEMBRO NO ENCONTRADO");
+                    }
                     break;
                 case 6:
                     JOptionPane.showMessageDialog(null, gimnasioUptc.mostrarMiembro());
