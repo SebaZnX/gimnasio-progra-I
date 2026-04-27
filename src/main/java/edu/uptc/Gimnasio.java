@@ -132,17 +132,37 @@ public class Gimnasio {
     }*/
 
     public String asignarCoach(String idMiembro, String cedulaCoach) {
-        Coach coachAux = coaches.get(cedulaCoach);
-        this.miembros.get(idMiembro).setCoach(coachAux);
-        return "Coach Asignado";
+        for (Coach coachAux : this.coaches) {
+            if (coachAux.getCedula().equals(cedulaCoach)) {
+                this.miembros.get(idMiembro).setCoach(coachAux);
+                return "Coach Asiganado";
+            }
+        }
+        if (cedulaCoach.equals("0")){
+            this.miembros.get(idMiembro).setCoach(null);
+            return "Coach eliminado";
+        }
+        return "Coach no asignado";
     }
 
-    public boolean cedulaBuscarCoach(String cedulaCoach){
-        return coaches.contains(cedulaCoach);
-    }
 
     public String mostrarCoaches() {
         return this.coaches.toString();
+    }
+
+    public boolean actualizarMembresia(String idMiembro, String idMembresia) {
+        if (idMembresia.equals(membresiaBronze.getIdMembresia())) {
+            this.miembros.get(idMiembro).setMembresia(membresiaBronze);
+            return true;
+        } else if (idMembresia.equals(membresiaPlatinum.getIdMembresia())) {
+            this.miembros.get(idMiembro).setMembresia(membresiaPlatinum);
+            return true;
+        } else if (idMembresia.equals(membresiaGold.getIdMembresia())) {
+            this.miembros.get(idMiembro).setMembresia(membresiaGold);
+            return true;
+        }
+        return false;
+
     }
 
 

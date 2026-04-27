@@ -78,18 +78,33 @@ public class Application {
                     }
 
                     break;
+                case 4:
+                    String idMiembroMembresia = JOptionPane.showInputDialog("INGRESE EL ID PARA CAMBIAR LA MENSUALIDAD");
+                    boolean isCedulaEncontrado = gimnasioUptc.idBuscar(idMiembroMembresia);
+                    if (isCedulaEncontrado) {
+                        String idMembresiaNew = JOptionPane.showInputDialog("""
+                                ----- INGRESE EL NUEVO TIPO DE MEMBRESIA -----
+                                1234. Membresia Gold
+                                4321. Membresia Platinium
+                                3241. Membresia Bronze
+                                """);
+                        boolean isCambiado = gimnasioUptc.actualizarMembresia(idMiembroMembresia, idMembresiaNew);
+                        if (isCambiado) {
+                            JOptionPane.showMessageDialog(null, "MEMBRESIA ACTUALIZADA");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "MEMBRESIA NO ENCOTNRADA");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "EL MIEMBRO NO FUE ENCONTRADO");
+                    }
+                    break;
                 case 5:
                     String idMiembro = JOptionPane.showInputDialog("INGRESE LA CEDULA DEL MIEMBRO");
                     boolean isEncontradoMiembro = gimnasioUptc.idBuscar(idMiembro);
                     if (isEncontradoMiembro) {
-                        String cedulaCoach = JOptionPane.showInputDialog("INGRESE LA CEDULA DEL COACH \n" +
+                        String cedulaCoach = JOptionPane.showInputDialog("INGRESE LA CEDULA DEL COACH (0 Eliminar coach del miembro)\n" +
                                 gimnasioUptc.mostrarCoaches());
-                        boolean isEncontradoCoach = gimnasioUptc.cedulaBuscarCoach(cedulaCoach);
-                        if (isEncontradoCoach) {
-                            JOptionPane.showMessageDialog(null, gimnasioUptc.asignarCoach(idMiembro, cedulaCoach));
-                        } else {
-                            JOptionPane.showMessageDialog(null, "EL COACH NO EXISTE");
-                        }
+                        JOptionPane.showMessageDialog(null, gimnasioUptc.asignarCoach(idMiembro, cedulaCoach));
                     } else {
                         JOptionPane.showMessageDialog(null, "MIEMBRO NO ENCONTRADO");
                     }
