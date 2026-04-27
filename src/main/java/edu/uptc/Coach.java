@@ -60,12 +60,9 @@ public class Coach {
 
     @Override
     public String toString() {
-        return "Coach{" +
-                "cedula='" + cedula + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", profesion='" + profesion + '\'' +
-                ", anhosExperiencia=" + anhosExperiencia +
-                '}';
+        return nombre + " " + apellido +
+                " (Cédula: " + cedula +
+                ", Profesión: " + profesion +
+                ", Años de experiencia: " + anhosExperiencia + ")";
     }
 }

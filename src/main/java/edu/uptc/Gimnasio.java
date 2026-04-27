@@ -60,7 +60,14 @@ public class Gimnasio {
     }
 
     public String mostrarMiembro() {
-        return this.miembros.toString();
+        if (miembros.isEmpty()) {
+            return "No hay miembros registrados.";
+        }
+        String resultado = "Lista de miembros:\n";
+        for (Miembro m : miembros.values()) {
+            resultado += m.toString() + "\n";
+        }
+        return resultado;
     }
 
     //EL METODO CONTEINSKEY YA REGRESA UN FALSO O VERDADERO
@@ -88,6 +95,7 @@ public class Gimnasio {
     public double calcularMembresia(String idMiembro) {
         double precioMensualidad = miembros.get(idMiembro).getMembresia().getPrecio();
         double descuento = 0;
+        double precioCoach = 0;
         // descuentos
         if ((miembros.get(idMiembro).getEdad() < 18) && ((miembros.get(idMiembro).getMembresia().getIdMembresia())
                 .equals("4321") || (miembros.get(idMiembro).getMembresia().getIdMembresia()).equals("3241"))) {
@@ -99,7 +107,14 @@ public class Gimnasio {
         } else if (miembros.get(idMiembro).getEdad() > 60) {
             descuento = precioMensualidad * 0.5;
         }
-        return precioMensualidad - descuento;
+        // coach precio
+
+        if (miembros.get(idMiembro).getCoach() != null) {
+            precioCoach = 200000 + (miembros.get(idMiembro).getCoach().getAnhosExperiencia()) * 20000;
+        }
+        double precioTotal = (precioMensualidad - descuento) + precioCoach;
+
+        return precioTotal;
     }
 
     public String asignarCoach(String idMiembro, String cedulaCoach) {

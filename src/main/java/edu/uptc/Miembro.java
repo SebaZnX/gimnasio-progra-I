@@ -81,13 +81,26 @@ public class Miembro {
 
     @Override
     public String toString() {
-        return "\n===================================" +
-                "\nNombre: " + nombre + " " + apellido +
-                "\nCédula: " + cedula +
-                "\nEdad: " + edad + " años" +
-                "\nMeses inscrito: " + mesesInscripcion +
-                membresia.toString() +
-                "\nCoach: " + coach.toString() +
-                "\n===================================";
+        String texto = "\n===================================\n";
+        texto += "  Miembro:\n";
+        texto += "    Nombre: " + nombre + " " + apellido + "\n";
+        texto += "    Cédula: " + cedula + "\n";
+        texto += "    Edad: " + edad + " años\n";
+        texto += "    Meses inscrito: " + mesesInscripcion + "\n";
+
+        if (membresia != null) {
+            texto += "    Membresía: " + membresia.toString() + "\n";
+        } else {
+            texto += "    Membresía: No asignada\n";
+        }
+
+        if (coach != null) {
+            texto += "    Coach: " + coach.toString() + "\n";
+        } else {
+            texto += "    Coach: Sin coach asignado\n";
+        }
+
+        texto += "===================================";
+        return texto;
     }
 }

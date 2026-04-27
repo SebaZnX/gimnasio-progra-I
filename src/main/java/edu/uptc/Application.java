@@ -51,8 +51,8 @@ public class Application {
                     if (isEncontrado) {
                         boolean isEliminado = gimnasioUptc.eliminarMiembroPorId(idBuscado);
                         if (isEliminado) {
-                            JOptionPane.showMessageDialog(null, "EL USUARIO CON CEDULA"
-                                    + idBuscado + "FUE ELIMINADO");
+                            JOptionPane.showMessageDialog(null, "EL USUARIO CON CEDULA: "
+                                    + idBuscado + " FUE ELIMINADO");
                         } else {
                             JOptionPane.showMessageDialog(null, "EL USUARIO CON CEDULA"
                                     + idBuscado + "NO PUDO SER ELIMINADO, INTENTE DE NUEVO");
