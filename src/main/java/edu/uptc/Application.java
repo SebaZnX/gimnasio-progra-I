@@ -78,6 +78,12 @@ public class Application {
                     }
 
                     break;
+                case 5:
+                    String idMiembro = JOptionPane.showInputDialog("INGRESE LA CEDULA DEL MIEMBRO");
+                    String cedulaCoach = JOptionPane.showInputDialog("INGRESE LA CEDULA DEL COACH \n" +
+                            gimnasioUptc.mostrarCoaches());
+                    JOptionPane.showMessageDialog(null, gimnasioUptc.asignarCoach(idMiembro, cedulaCoach));
+                    break;
                 case 6:
                     JOptionPane.showMessageDialog(null, gimnasioUptc.mostrarMiembro());
                     break;

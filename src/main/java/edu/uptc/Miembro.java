@@ -8,6 +8,7 @@ public class Miembro {
     private int edad;
     private int mesesInscripcion;
     private Membresia membresia;
+    private Coach coach;
 
     public Miembro(String nombre, String apellido, String cedula, int edad, int mesesInscripcion, Membresia membresia) {
         this.nombre = nombre;
@@ -16,6 +17,7 @@ public class Miembro {
         this.edad = edad;
         this.mesesInscripcion = mesesInscripcion;
         this.membresia = membresia;
+        this.coach = null;
     }
 
     public Miembro() {
@@ -69,6 +71,14 @@ public class Miembro {
         this.membresia = membresia;
     }
 
+    public Coach getCoach() {
+        return coach;
+    }
+
+    public void setCoach(Coach coach) {
+        this.coach = coach;
+    }
+
     @Override
     public String toString() {
         return "\n===================================" +
@@ -77,6 +87,7 @@ public class Miembro {
                 "\nEdad: " + edad + " años" +
                 "\nMeses inscrito: " + mesesInscripcion +
                 membresia.toString() +
+                "\nCoach: " + coach.toString() +
                 "\n===================================";
     }
 }

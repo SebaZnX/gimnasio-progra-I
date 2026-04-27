@@ -1,6 +1,7 @@
 package edu.uptc;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class Gimnasio {
 
@@ -8,6 +9,7 @@ public class Gimnasio {
     private Membresia membresiaGold;
     private Membresia membresiaPlatinum;
     private Membresia membresiaBronze;
+    private HashSet<Coach> coaches;
 
     public Gimnasio() {
         this.miembros = new HashMap<>();
@@ -27,6 +29,14 @@ public class Gimnasio {
         this.membresiaBronze = new Membresia("3241", 80000, "Bronze",
                 "Membresia con acceso unico a maquinas de ejercicio anaerobico",
                 false, false);
+        this.coaches = new HashSet<>();
+
+        this.coaches.add(new Coach("123", "Andres", "Lopez", "Educador Fisico",
+                5));
+        this.coaches.add(new Coach("234", "Andrea", "Perez", "Fisioterapeuta",
+                10));
+        this.coaches.add(new Coach("345", "Juan Andres", "Torres", "Empirico",
+                2));
     }
 
     public boolean crearMiembro(String nombre, String apellido, String cedula, int edad, String idMembresia) {
@@ -90,6 +100,24 @@ public class Gimnasio {
             descuento = precioMensualidad * 0.5;
         }
         return precioMensualidad - descuento;
+    }
+
+    public String asignarCoach(String idMiembro, String cedulaCoach) {
+        for (String cedula : this.miembros.keySet()) {
+            if (cedula.equals(idMiembro)) {
+                for (Coach coachAux : this.coaches) {
+                    if (coachAux.getCedula().equals(idMiembro)) {
+                        this.miembros.get(idMiembro).setCoach(coachAux);
+                        return "El coach se ha asignado";
+                    }
+                }
+            }
+        }
+        return "Miembro o coach no encontrados";
+    }
+
+    public String mostrarCoaches() {
+        return this.coaches.toString();
     }
 
 
