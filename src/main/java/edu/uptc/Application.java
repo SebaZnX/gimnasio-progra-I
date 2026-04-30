@@ -8,6 +8,7 @@ public class Application {
         Gimnasio gimnasioUptc = new Gimnasio();
 
         String menu = """
+                --------------------------------
                 Bienvenido al gimnasio de la UPTC
                 1. Añadir un nuevo miembro
                 2. Eliminar miembro por ID
@@ -16,6 +17,7 @@ public class Application {
                 5. Adquirir Coach
                 6. Mostrar todos los miembros
                 7. Salir
+                --------------------------------
                 """;
         int opcion = 0;
         while (opcion != 7) {

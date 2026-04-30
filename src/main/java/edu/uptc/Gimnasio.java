@@ -117,19 +117,6 @@ public class Gimnasio {
         return precioTotal;
     }
 
-   /* public String asignarCoach(String idMiembro, String cedulaCoach) {
-        for (String cedula : this.miembros.keySet()) {
-            if (cedula.equals(idMiembro)) {
-                for (Coach coachAux : this.coaches) {
-                    if (coachAux.getCedula().equals(idMiembro)) {
-                        this.miembros.get(idMiembro).setCoach(coachAux);
-                        return "El coach se ha asignado";
-                    }
-                }
-            }
-        }
-        return "Miembro o coach no encontrados";
-    }*/
 
     public String asignarCoach(String idMiembro, String cedulaCoach) {
         for (Coach coachAux : this.coaches) {
