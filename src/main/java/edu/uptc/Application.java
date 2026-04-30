@@ -17,6 +17,8 @@ public class Application {
                 5. Adquirir Coach
                 6. Mostrar todos los miembros
                 7. Salir
+                
+                hola 
                 --------------------------------
                 """;
         int opcion = 0;
