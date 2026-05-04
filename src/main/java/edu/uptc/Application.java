@@ -8,18 +8,17 @@ public class Application {
         Gimnasio gimnasioUptc = new Gimnasio();
 
         String menu = """
-                --------------------------------
-                Bienvenido al gimnasio de la UPTC
-                1. Añadir un nuevo miembro
-                2. Eliminar miembro por ID
-                3. Consultar mensualidad
-                4. Actualizar membresia
-                5. Adquirir Coach
-                6. Mostrar todos los miembros
-                7. Salir
+                 --------------------------------
+                 Bienvenido al gimnasio de la UPTC
+                 1. Añadir un nuevo miembro
+                 2. Eliminar miembro por ID
+                 3. Consultar mensualidad
+                 4. Actualizar membresia
+                 5. Adquirir Coach
+                 6. Mostrar todos los miembros
+                 7. Salir
                 
-                hola 
-                --------------------------------
+                 --------------------------------
                 """;
         int opcion = 0;
         while (opcion != 7) {
